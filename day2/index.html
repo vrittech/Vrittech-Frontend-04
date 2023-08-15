@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <style></style>
+    <title>VIDEO/IFRAME/TABLES/FORMS/LISTS/CSS</title>
+  </head>
+  <body>
+    <!-- <iframe src="../day1/about.html" title="about page"></iframe>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/K_XcqhPtmzo"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe> -->
+
+    <!-- HTML Tables -->
+    <!-- <table>
+      <caption>
+        Employee Information
+      </caption>
+      <thead>
+        <tr>
+          <th>Employee Id</th>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>John Doe</td>
+          <td>Manager</td>
+          <td>$75000</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>John Doe</td>
+          <td>Manager</td>
+          <td>$75000</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>John Doe</td>
+          <td>Manager</td>
+          <td>$75000</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>John Doe</td>
+          <td>Manager</td>
+          <td>$75000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total Salary</td>
+          <td>$300000</td>
+        </tr>
+      </tfoot>
+    </table> -->
+
+    <!-- LISTS -> 2 types -->
+    <!-- 1 Unordered list -->
+    <!-- 
+    <ul>
+      <li>Student 1</li>
+      <li>Student 2</li>
+      <li>Student 3</li>
+    </ul> -->
+    <!-- 2. Ordered list -->
+
+    <!-- <ol type="i">
+      <li>Student 1</li>
+      <li>Student 2</li>
+      <li>Student 3</li>
+    </ol> -->
+
+    <!-- HTML FORMS -->
+
+    <form action="" method="post">
+      <!-- Text Input -->
+      <div>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          required
+          value="Nirajan Kunwor"
+          readonly
+        />
+      </div>
+
+      <!-- Email Input -->
+      <label for="email">Email</label>
+      <input
+        autofocus
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      />
+      <br />
+
+      <!-- Password Input -->
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+      />
+      <br />
+
+      <!-- Radio Buttons -->
+      <label>Gender</label>
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Female</label>
+      <input type="radio" id="others" name="gender" value="others" />
+      <label for="others">Others</label>
+      <br />
+
+      <!-- Checkbox -->
+      <label>
+        <input type="checkbox" name="terms-and-conditions" />I accept to terms
+        and conditions
+      </label>
+      <br />
+      <div>
+        <select name="" id="" oncha>
+          <option value="">Select a value to continue</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+        </select>
+      </div>
+
+      <!-- Textarea -->
+      <label for="description">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="3"
+      ></textarea>
+
+      <br />
+
+      <!-- File Input -->
+      <label for="avatar">Avatar:</label>
+      <input type="file" id="avatar" />
+
+      <!-- Label grouping with fieldset and legend -->
+
+      <fieldset>
+        <legend>Contact information</legend>
+        <!-- Input fields checkboxes -->
+        <label for="avatar">Avatar:</label>
+        <input type="file" id="avatar" />
+        <br />
+      </fieldset>
+
+      <!-- Date Input -->
+      <label for="birthday">Birthday</label>
+      <input type="date" id="birthday" />
+
+      <!-- Range Input -->
+      <label for="volume">Volume</label>
+      <input type="range" id="volume" min="0" max="100" />
+
+      <!-- ColorPicker Input -->
+      <label for="favColor">FavColor</label>
+      <input type="color" id="favColor" />
+      <br />
+      <button type="submit">Submit</button>
+      <button type="button">Login</button>
+      <button type="reset">Reset</button>
+
+      <br />
+    </form>
+
+    <!-- <a href="https://www.google.com" target="_blank">Google</a> -->
+    <!-- <a type="submit">abc</a> -->
+    <!-- <input type="button" value="Login" /> -->
+  </body>
+</html>

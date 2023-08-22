@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+.navbar div {
+  padding: 14px 16px;
+}
+.navbar .float-left a {
+  text-decoration: none;
+  color: #fff;
+  padding: 14px 16px;
+}
+.navbar .float-right a {
+  text-decoration: none;
+  color: orange;
+  padding: 7px;
+}
+.navbar a:hover {
+  background-color: white;
+  color: black;
+}
+.navbar .float-left {
+  float: left;
+}
+.navbar .float-right {
+  float: right;
+}
+
+table thead tr th {
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+table tbody tr td {
+  border: 1px solid black;
+  text-align: right;
+  padding: 10px;
+}
+
+/* Basic styling of table */
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.styled-table tbody tr:nth-child(even):hover {
+  background-color: blue;
+  color: white;
+}
+.styled-table tbody tr:nth-child(odd) {
+  background-color: #ff9898;
+}
+.styled-table tbody tr:nth-child(odd):hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.main-container {
+  position: relative;
+  margin: auto;
+  border: 1px solid green;
+  height: 600px;
+  width: 600px;
+}
+
+.container {
+  /* position: relative; */
+  padding: 10px;
+  margin: auto;
+  border: 1px solid red;
+  height: 600px;
+  width: 300px;
+}
+
+.cont {
+  display: inline-block;
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  font-size: 8px;
+}
+
+.container-3 {
+  position: relative;
+  top: 200px;
+  left: 30px;
+}
+
+.container-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.container-1 {
+  position: fixed;
+  bottom: 3px;
+  right: 2px;
+}
+
+.container-4 {
+  width: 100vw;
+  position: sticky;
+  top: 0;
+}

@@ -22,6 +22,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 90%;
+  margin: auto;
 }
 
 /* .nav-links ul {
@@ -70,4 +72,110 @@
 .course-col img {
   width: 100%;
   height: 65%;
+}
+
+/* About Section start */
+.about-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding-top: 30px;
+  /* display: flex; */
+}
+
+.content-section {
+  float: left;
+  width: 40%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 60px;
+}
+
+.content h3 {
+  margin-top: 20px;
+  color: black;
+  font-size: 32px;
+}
+.content p {
+  margin-top: 10px;
+  color: black;
+  font-size: 24px;
+}
+
+button {
+  background-color: rgb(241, 175, 188);
+  padding: 12px 13px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 50%;
+}
+
+.social a i {
+  color: blue;
+  font-size: 30px;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+.image-section {
+  float: right;
+  width: 50%;
+}
+
+.image-section img {
+  width: 100%;
+  height: 340px;
+}
+
+.fa-bars {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .fa-bars {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .text-box h2 {
+    font-size: 1rem;
+  }
+  .text-box p {
+    font-size: 0.8rem;
+  }
+
+  .course .row {
+    flex-direction: column;
+  }
+  .course-col {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .content-section {
+    float: none;
+    width: 100%;
+  }
+
+  .content-section .title {
+    font-size: 1.5rem;
+  }
+  .content-section .p {
+    font-size: 0.8rem;
+  }
+
+  .image-section {
+    float: none;
+    width: 100%;
+  }
 }

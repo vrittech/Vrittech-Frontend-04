@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNITS in css/ media queries</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .percent-50 {
+        background-color: red;
+        color: white;
+        width: 50%;
+      }
+      .parent-percent-50 {
+        background-color: red;
+        color: white;
+        width: 50%;
+        height: 50%;
+      }
+      .viewwidth-50 {
+        background-color: rgb(27, 194, 94);
+        color: white;
+        width: calc(50vw - 20px);
+      }
+      .parent-viewwidth-50 {
+        background-color: rgb(27, 194, 94);
+        color: white;
+        width: 50vw;
+        /* height: 50vh; */
+      }
+
+      .parent {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+      }
+
+      h4 {
+        font-size: 1rem;
+      }
+
+      .parent-em {
+        font-size: 10px;
+      }
+
+      .parent-em-1 {
+        font-size: 3em;
+      }
+
+      .parent-em-2 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 2.5em;
+      }
+
+      .dev {
+        background-color: red;
+        color: white;
+        display: none;
+      }
+      /* Extra small devices */
+      @media only screen and (max-width: 576px) {
+        .ex-small-dev {
+          display: block;
+          font-size: 20px;
+          color: gold;
+        }
+      }
+      /* small devices (tablets and small laptops) */
+      @media only screen and (min-width: 577px) and (max-width: 768px) {
+        .small-dev {
+          display: block;
+          font-size: 40px;
+          color: gold;
+          background-color: rgb(30, 45, 45);
+        }
+      }
+      /* Medium devices (tablets and small laptops) */
+      @media only screen and (min-width: 769px) and (max-width: 992px) {
+        .med-dev {
+          display: block;
+          font-size: 60px;
+          color: blue;
+          background-color: aqua;
+        }
+      }
+      /* Large devices (large desktop and tvs) */
+      @media only screen and (min-width: 993px) and (max-width: 1200px) {
+        .large-dev {
+          display: block;
+          font-size: 80px;
+          color: rgb(136, 136, 181);
+        }
+      }
+      /* Extra Large devices (high ) */
+      @media only screen and (min-width: 1201px) {
+        .large-dev {
+          display: block;
+          font-size: 100px;
+          color: rgb(238, 255, 0);
+        }
+      }
+      /*       
+    
+     
+     medium devices (laptop and desktop)
+     large devices (large desktop and tvs)
+     ex large devices (high resulution monitor) */
+    </style>
+  </head>
+  <body>
+    <!-- <h3 class="percent-50">50% width</h3>
+    <h3 class="viewwidth-50">50vw width</h3>
+
+    <div class="parent">
+      <h4 class="parent-percent-50">50% width</h4>
+      <h4 class="parent-viewwidth-50">50vw width</h4>
+    </div> -->
+
+    <!-- rem, em font- size -->
+
+    <!-- <div class="parent-em">
+      <div class="parent-em-1">
+        <div class="parent-em-2">
+          <h4>Hello world</h4>
+          <p>Hey students</p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Media queries -->
+
+    <div class="ex-small-dev dev">Ex Small screen devices</div>
+    <div class="small-dev dev">Small screen devices</div>
+    <div class="med-dev dev">med screen devices</div>
+    <div class="large-dev dev">large screen devices</div>
+    <div class="ex-large-dev dev">ex-large screen devices</div>
+  </body>
+</html>

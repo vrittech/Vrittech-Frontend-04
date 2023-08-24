@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRID</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        background-color: #ae7b7b;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-rows: 48px 1fr 55px;
+        grid-template-columns: 150px 1fr;
+        column-gap: 10px;
+        row-gap: 10px;
+      }
+
+      .item {
+        background-color: aqua;
+        border: 1px solid black;
+      }
+
+      /* .header {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+
+      .content {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+
+      .footer {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      } */
+
+      .sidebar {
+        grid-row-start: 1;
+        grid-row-end: 4;
+      }
+
+      /* .header {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+
+      .content {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+
+      .footer {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item header">Header</div>
+      <div class="item sidebar">Sidebar</div>
+      <div class="item content">Content</div>
+      <div class="item footer">Footer</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Tilt+Prism&display=swap");
+
+html {
+  /* It is 10px */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  color: rgb(85, 85, 85);
+}
+
+a,
+.btn {
+  transition: all ease 300ms;
+}
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  gap: 3.2rem;
+  list-style: none;
+  font-size: 2.4rem;
+}
+
+.nav-links li a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-links li a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-decoration-color: rgb(181, 181, 181);
+  text-underline-offset: 1.5rem;
+}
+
+.logo {
+  font-size: 3.2rem;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+/* Hamburger Menu */
+.hamburger-nav {
+  display: none;
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  justify-content: center;
+  gap: 25rem;
+  height: 80vh;
+}
+
+.profile .section__pic-container {
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+.profile .section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.profile .section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.section__text__p2 {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 1.7rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: cemter;
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+}
+
+.icon {
+  cursor: pointer;
+  height: 3.5rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.btn {
+  font-weight: 600;
+  padding: 1.6rem;
+  width: 15rem;
+  border-radius: 3.2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+  border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}

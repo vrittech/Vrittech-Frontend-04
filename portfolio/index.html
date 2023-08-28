@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>PORTFOLIO WEBSITE</title>
+  </head>
+  <body>
+    <nav class="desktop-nav">
+      <div class="logo">Nirajan</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <nav class="hamburger-nav">
+      <div class="logo">Nirajan</div>
+      <div class="hamburger-menu">
+        <!-- Either use font aweswom icons or use below code -->
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <ul class="menu-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Profile Section Start -->
+    <section class="profile">
+      <div class="section__pic-container">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1690574169344-48f431816db6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60"
+          alt="Own Profile Picture"
+        />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Jack Abc</h1>
+        <p class="section__text__p2">Frontend Developer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-1"
+            onclick="window.open('./assets/dummy.pdf')"
+          >
+            Download CV
+          </button>
+          <!-- <a class="btn btn-color-1" href="./assets/dummy.pdf" target="_blank">
+            Download CV</a
+          > -->
+          <button class="btn btn-color-2">Contact me</button>
+        </div>
+
+        <div class="social-container">
+          <button style="border: none" onclick="openLinkedInProfile()">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png"
+              alt="My Linkedin Profile"
+              class="icon"
+            />
+          </button>
+          <button style="border: none" onclick="openGithubProfile()">
+            <img
+              src="./assets/GitHub-logo.png"
+              alt="My Github Profile"
+              class="icon"
+            />
+          </button>
+        </div>
+      </div>
+    </section>
+    <script>
+      function openLinkedInProfile() {
+        window.location.href = "https://www.linkedin.com/in/nirajan-kunwor/";
+      }
+      function openGithubProfile() {
+        window.location.href = "https://github.com/Nirajan995";
+      }
+    </script>
+    <!-- Profile Section End -->
+  </body>
+</html>

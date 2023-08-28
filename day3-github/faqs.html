@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Shared Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-item {
+        margin-right: 20px;
+      }
+
+      .nav-link {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #f1c40f;
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-toggle::after {
+        content: "▼";
+        margin-left: 5px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        border: 1px solid #222;
+        min-width: 160px;
+        transform: translateX(-20%);
+      }
+
+      .dropdown-content a {
+        display: block;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #222;
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+      }
+
+      .search input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+      }
+
+      .search button {
+        background-color: #444;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      /* About Page Styles */
+      .about-page {
+        padding: 40px;
+        background-color: #fff;
+        margin-top: 30px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .about-section {
+        margin-bottom: 30px;
+      }
+
+      .team-section {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .team-member {
+        flex: 0 0 calc(33.33% - 20px);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .team-member img {
+        max-width: 100%;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      /* FAQ Page Styles */
+      .faq-page {
+        padding: 40px;
+        background-color: #fff;
+        margin-top: 30px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .faq {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #f1c40f;
+        border-radius: 5px;
+      }
+      .faq h3 {
+        margin: 0;
+      }
+
+      /* ... Other styles ... */
+    </style>
+    <title>Designer Portfolio</title>
+  </head>
+  <body>
+    <nav class="navbar" style="position: sticky; top: 0">
+      <div class="logo">Designer Portfolio</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Portfolio</a></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle">Services</a>
+          <div class="dropdown-content">
+            <a href="#" class="nav-link">Web Design</a>
+            <a href="#" class="nav-link">Graphic Design</a>
+            <a href="#" class="nav-link">UI/UX Design</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        <li class="nav-item search">
+          <div class="search">
+            <input type="text" placeholder="Search..." />
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="about-page">
+      <div class="about-section">
+        <h1>About Us</h1>
+        <p>
+          Welcome to our world of design excellence. With over two decades of
+          experience, our passion for creativity drives us to deliver stunning
+          solutions tailored to your needs.
+        </p>
+      </div>
+      <h2>Our Team</h2>
+      <div class="team-section" style="margin-top: 70px">
+        <div class="team-member">
+          <img
+            src="https://img.freepik.com/free-photo/confident-business-team-with-leader_1098-3228.jpg"
+            alt="Team Member 1"
+          />
+          <h3>John Doe</h3>
+          <p>Lead Designer</p>
+        </div>
+        <div class="team-member" style="margin-left: 40px">
+          <img
+            src="https://img.freepik.com/free-photo/confident-business-team-with-leader_1098-3228.jpg"
+            alt="Team Member 1"
+          />
+          <h3>John Doe</h3>
+          <p>Lead Designer</p>
+        </div>
+
+        <!-- More team members -->
+      </div>
+    </div>
+
+    <div class="faq-page">
+      <h1>Frequently Asked Questions</h1>
+      <div class="faq-list">
+        <div class="faq">
+          <h3>What services do you offer?</h3>
+          <p>
+            We offer a wide range of design services including web design,
+            graphic design, and UI/UX design.
+          </p>
+        </div>
+        <div class="faq">
+          <h3>How do I get started?</h3>
+          <p>
+            Getting started is easy! Simply reach out to us through our contact
+            page and we'll be in touch to discuss your project.
+          </p>
+        </div>
+        <div class="faq">
+          <h3>How do I get started?</h3>
+          <p>
+            Getting started is easy! Simply reach out to us through our contact
+            page and we'll be in touch to discuss your project.
+          </p>
+        </div>
+        <div class="faq">
+          <h3>How do I get started?</h3>
+          <p>
+            Getting started is easy! Simply reach out to us through our contact
+            page and we'll be in touch to discuss your project.
+          </p>
+        </div>
+        <div class="faq">
+          <h3>How do I get started?</h3>
+          <p>
+            Getting started is easy! Simply reach out to us through our contact
+            page and we'll be in touch to discuss your project.
+          </p>
+        </div>
+        <div class="faq">
+          <h3>How do I get started?</h3>
+          <p>
+            Getting started is easy! Simply reach out to us through our contact
+            page and we'll be in touch to discuss your project.
+          </p>
+        </div>
+        <div class="faq">
+          <h3>How do I get started?</h3>
+          <p>
+            Getting started is easy! Simply reach out to us through our contact
+            page and we'll be in touch to discuss your project.
+          </p>
+        </div>
+        <!-- More FAQs -->
+      </div>
+    </div>
+
+    <script>
+      // JavaScript for dropdown functionality
+      const dropdowns = document.querySelectorAll(".dropdown");
+      dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener("mouseenter", () => {
+          dropdown.querySelector(".dropdown-content").style.display = "block";
+        });
+        dropdown.addEventListener("mouseleave", () => {
+          dropdown.querySelector(".dropdown-content").style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>

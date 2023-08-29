@@ -11,6 +11,10 @@
       referrerpolicy="no-referrer"
     />
     <style>
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
       .dropdown {
         position: relative;
         display: inline-block;
@@ -44,15 +48,18 @@
     <title>DROPDOWN</title>
   </head>
   <body>
-    <div class="dropdown">
-      <button class="dropbutton">
-        Dropdown <i class="fa-solid fa-circle-chevron-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Contact</a>
+    <nav>
+      <a href="">Logo</a>
+      <div class="dropdown">
+        <a class="dropbutton">
+          Dropdown <i class="fa-solid fa-circle-chevron-down"></i>
+        </a>
+        <div class="dropdown-content">
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">Contact</a>
+        </div>
       </div>
-    </div>
+    </nav>
   </body>
 </html>

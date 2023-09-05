@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Comparison operator
+
+      let a = 30;
+      let b = "30";
+
+      // equal value
+      // console.log("a==b", a == b);
+      //not equal value
+      console.log("a != b", a != b);
+      // equal type and equal value
+      // console.log("a === b", a === b);
+      //not equal type and not equal value
+      console.log("a !== b", a !== b);
+
+      let x = 18;
+      console.log("x>=18", x >= 18);
+      console.log("x<18", x < 18);
+
+      //Concat string
+      let text1 = "A quick brown fox";
+      let text2 = "jumps over lazy dog";
+      let text3 = ".";
+      let number = 30;
+      let text4 = 50;
+
+      // "50" + "30" 5030
+
+      const thirdString = number + text4;
+      console.log(thirdString);
+
+      console.log("a > b", "a" > "b");
+      console.log("A < B", "A" < "B");
+
+      //Converting string to number
+      const string1 = "ABC";
+      const string2 = "55";
+
+      Number("ABC");
+
+      const changeString1Num = Number(string1);
+      const changeString2Num = Number(string2);
+
+      console.log(string1, changeString1Num);
+      console.log(
+        string2,
+        typeof string2,
+        "ok thik xa",
+        changeString2Num,
+        typeof changeString2Num
+      );
+
+      //Logical operator
+
+      // Logical Not
+      let email;
+
+      let password;
+      if (!email) {
+        console.log("Enter email to continue");
+      }
+      console.log("!email", !email);
+      console.log("!password", !password);
+
+      //Logical and
+      let student1 = 21;
+      let student2 = 21;
+
+      console.log("You can enter a club ", student1 >= 18 && student2 >= 18);
+      //Logical or
+
+      // console.log();
+      console.log("One can enter if ", student1 >= 18 || student2 >= 18);
+
+      //Object -> Arrays
+
+      console.log("------------ -----------");
+
+      // console.log(student1 === student2);
+      // console.log(student1 == student2);
+
+      let carModel2 = {
+        "first Name": "Mercedez",
+        "last Name": "Benz",
+        madeYear: 2012,
+        madeIn: "USA",
+        kilometersRun: 90000,
+        color: "white",
+        isSold: false,
+        address: {
+          city: "Washington",
+          postalCode: [
+            "1",
+            2,
+            {
+              tes: "abc",
+            },
+          ],
+          ownerDetails: {
+            ownerName: "Haris",
+            phoneNum: 999,
+          },
+        },
+      };
+      let carModel1 = {
+        "first Name": "Mercedez",
+        "last Name": "Benz",
+        madeYear: 2012,
+        madeIn: "USA",
+        kilometersRun: 90000,
+        color: "white",
+        isSold: false,
+        address: {
+          city: "Washington",
+          postalCode: [
+            "1",
+            2,
+            {
+              tes: "abc",
+            },
+          ],
+          ownerDetails: {
+            ownerName: "Haris",
+            phoneNum: 999,
+          },
+        },
+      };
+
+      let av = {
+        test: "1",
+      };
+      let av1 = {
+        test: 1,
+      };
+
+      // console.log(av.test === av1.test);
+      // const students = ["ram", "shaym0", "sita"];
+
+      // console.log(students.length);
+      // Array -> object
+      const arr = [av, av1, carModel1, carModel2];
+      console.log(typeof arr.length);
+      console.log(arr.length - 1);
+
+      const lastLength = arr.length - 1;
+
+      //fixed array first index -> 0
+      // console.log(arr[0]);
+      console.log(arr[0]);
+      console.log(arr[lastLength]);
+      //fixed array last index ->  array length - 1
+      // console.log(arr);
+      // console.log(carModel1.address.ownerDetails.ownerName);
+      // console.log(carModel1["address"]["ownerDetails"]["phoneNum"]);
+      // console.log(carModel1["first Name"]);
+      // console.log(carModel1["last Name"]);
+    </script>
+  </body>
+</html>

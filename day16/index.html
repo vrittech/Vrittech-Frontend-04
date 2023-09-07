@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOOP</title>
+  </head>
+  <body>
+    <script>
+      // 100 sum
+      // 1+2+3+4
+
+      // function sumOfSeries(a) {
+      //   // 110/2 =55 n * (n+1)
+      //   const sum = a * (a + 1);
+      //   const sumSeries = sum / 2;
+      //   documentWrite(sumSeries);
+      // }
+
+      // function documentWrite(a) {
+      //   console.log("I am calling from different function");
+      //   document.write(a);
+      // }
+
+      // sumOfSeries(num);
+      // 100
+      // if(num % 1 === 0 && num % 2 ===0)
+
+      // 13 -> 1,2,3,4,5,6,7,8,9,10,11,12,13
+
+      // for loop -> for of , for in
+      // syntax
+      // for(startIndex; endIndex; increment/decrement){
+      // block of code
+      // }
+
+      // let isPrime = true;
+      // for (let j = 2; j < num / 2; j++) {
+      //   console.log(num + "%" + j + " = " + (num % j));
+
+      //   if (num % j === 0) {
+      //     console.log("hami loop vitra xaun");
+      //     isPrime = false;
+      //     break;
+      //   }
+      // }
+
+      // if (isPrime) {
+      //   console.log(num, " is prime");
+      // } else {
+      //   console.log(num, " is  not prime");
+      // }
+
+      // 150 - 5 -> 145 odd, even, prime , not prime
+
+      // 5 is odd and prime
+      // 10 is even and not prime
+
+      // let count = 0;
+      // for (let j = 1; j <= num; j++) {
+      //   if (num % j === 0) {
+      //     count = count + 1;
+      //   }
+      // }
+
+      // if (count === 2) {
+      //   console.log(num, "prime");
+      // } else {
+      //   console.log(num, "not prime");
+      // }
+
+      function checkPrime(num, message) {
+        let isPrime = true;
+        for (let j = 2; j < num / 2; j++) {
+          if (num % j === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+
+        if (isPrime) {
+          console.log(num + " is " + message + " and is prime");
+        } else {
+          console.log(num + " is " + message + " and is  not prime");
+        }
+      }
+
+      function oddEven(num) {
+        if (num % 2 === 0) {
+          checkPrime(num, "even");
+        } else {
+          checkPrime(num, "odd");
+        }
+      }
+
+      // const str = prompt("Enter a number");
+      const num = 1000;
+
+      for (let i = 5; i <= num - 5; i++) {
+        if (i % 5 === 0) {
+          oddEven(i);
+        }
+      }
+      // palindrome madam===madam 1221 abba madam not same no palidrome test === tset
+
+      // console.log(str[0]);
+      // console.log(str[1]);
+      // console.log(str[2]);
+      // console.log(str[3]);
+      // console.log(str[4]);
+      // console.log(str[5]);
+    </script>
+  </body>
+</html>

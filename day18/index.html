@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions/varletconst/SyncronousAsyncProgramming/API calls</title>
+  </head>
+  <body>
+    <script>
+      const currDate = new Date();
+
+      const calculateCurrentYear = (date) => {
+        const currYear = date.getFullYear();
+        return currYear;
+      };
+      // 19/08/2022
+      //2023-08-19
+      const dateFormatter = (date) => {
+        const currYear = date.getFullYear();
+        const currMonth = date.getMonth(); // 0 for Jan and 11 for Dec
+        const currDay = date.getDate();
+        const formattedDate = `${currYear}-${currMonth + 1}-${currDay}`;
+        return formattedDate;
+      };
+
+      const d = calculateCurrentYear(currDate);
+      const f = dateFormatter(currDate);
+      // const f = dateFormatter(currDate);
+      document.write(`Copyright @company_name ${d}`);
+      document.write(`<br> Current date is ${f}`);
+      //undefined, undeclared
+      // console.log(x);
+      function test() {
+        let y = 10;
+        // console.log(y);
+
+        if (true) {
+          var x;
+          y = 20;
+
+          console.log("vitra", y);
+          for (let y = 0; y < 10; y++) {
+            // console.log("y", y);
+          }
+          // console.log("for loop baira", y);
+        }
+        return y;
+      }
+      // console.log("test", test());
+      test();
+      let y = 100;
+      console.log(y);
+
+      // hoisting -> top of scope declaration
+
+      // ES5 function
+      // ECMAScript - ES6 (2015)
+      // var(function scope) vs let(block scope)  vs const(block scope)
+
+      //Higher Order array methods - forEach, map, filter, reduce
+      const array = [
+        {
+          id: 1,
+          productName: "Phone",
+          description: "loremloremlorem",
+          price: 1000,
+          currency: "USD",
+          address: {
+            city: "Washington",
+            postalCode: 2000,
+          },
+          discountPercent: 20,
+          rating: 3,
+        },
+        {
+          id: 2,
+          productName: "Phone2",
+          description: "loremloremlorem",
+          price: 10000,
+          currency: "MXN",
+          address: {
+            city: "Mexico",
+            postalCode: 3000,
+          },
+          discountPercent: 30,
+          rating: 4,
+        },
+        {
+          id: 3,
+          productName: "Phone3",
+          description: "loremloremlorem",
+          price: 15000,
+          currency: "NPR",
+          address: {
+            city: "Kathmandu",
+            postalCode: 44600,
+          },
+          discountPercent: 70,
+          rating: 1,
+        },
+        {
+          id: 4,
+          productName: "Phone4",
+          description: "loremloremlorem",
+          price: 1000,
+          currency: "MXN",
+          address: {
+            city: "Mexico",
+            postalCode: 1000,
+          },
+          discountPercent: 20,
+          rating: 2,
+        },
+        {
+          id: 5,
+          productName: "Phone5",
+          description: "loremloremlorem",
+          price: 50000,
+          currency: "NPR",
+          address: {
+            city: "Pokhara",
+            postalCode: 10000,
+          },
+          discountPercent: 245,
+          rating: 4,
+        },
+        {
+          id: 6,
+          productName: "Phone6",
+          description: "loremloremlorem",
+          price: 1000,
+          currency: "USD",
+          address: {
+            city: "Washington",
+            postalCode: 1000,
+          },
+          discountPercent: 65,
+          rating: 4.6,
+        },
+      ];
+
+      // const item = [{ a: 10 }, { a: 20 }, { a: 30 }];
+
+      // item.forEach((val, index) => {
+      //   console.log(val, index);
+      // });
+
+      const data = array.forEach(function (item, i) {
+        return item;
+      });
+
+      console.log("data", data);
+
+      const data2 = array.filter(function (item, i) {
+        return item.address.city !== "Washington";
+      });
+
+      console.log("data2", data2);
+
+      const data3 = array.filter((item, i) => {
+        if (item.price >= 15000) {
+          return item.price;
+        }
+      });
+
+      // console.log("data3", data3);
+
+      //string methods
+
+      // Syncronous/Asyncronous Programming
+
+      const numbers = [10, 30, 50, 70, 99, 44, 23];
+
+      const filteredNums = numbers.filter((num) => {
+        return num > 80;
+      });
+
+      console.log(filteredNums);
+    </script>
+  </body>
+</html>

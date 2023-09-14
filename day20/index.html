@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+  </head>
+  <body>
+    <script>
+      //map filter forEach -> Higher order array methods
+      const num = [10, 30, 50, 41, "abc"];
+
+      const backednResp = [
+        {
+          firstName: "Ram",
+          lastName: "Thapa",
+        },
+        {
+          firstName: "Sita",
+          lastName: "Thapa",
+        },
+        {
+          firstName: "Hari",
+          lastName: "Thapa",
+        },
+        {
+          firstName: "Test",
+          lastName: "Thapa",
+        },
+      ];
+
+      {
+        fullName: "Ram Thapa";
+      }
+
+      const newData = backednResp.filter((val, index) => {
+        return index % 2 === 0;
+      });
+      // console.log(newData);
+      // console.log("-------------");
+      const khaliArr = newData.map((val) => {
+        return { fullName: val.firstName + " " + val.lastName };
+      });
+
+      // console.log("khaliArr", khaliArr);
+
+      // console.log(newData2);
+
+      const a = num.map((val) => {
+        if (val % 2 === 0) {
+          console.log("here");
+          return { oktest: `value is even: ${val}` };
+        }
+      });
+      // console.log(num);
+      // console.log(a);
+
+      // callback
+
+      // const addition = (a, b, cb) => {
+      //   setTimeout(() => {
+      //     cb(a + b);
+      //   }, 5000);
+      // };
+      // const logger = (value) => {
+      //   console.log(`Added value is following:`, value);
+      // };
+      // const data = addition(2, 3, logger);
+
+      // console.log("heyhey hey");
+
+      // HTTP methods: GET POST PUT/PATCH DELETE
+
+      // console.log(
+
+      fetch("https://dummyjson.com/products", {
+        method: "GET",
+      })
+        .then((val) => {
+          return val.json();
+        })
+        .then((val) => {
+          const filteredProds = val.products.filter((item) => {
+            return item.category === "smartphones";
+          });
+          console.log(filteredProds);
+        });
+
+      console.log("I am here");
+      // );
+    </script>
+  </body>
+</html>

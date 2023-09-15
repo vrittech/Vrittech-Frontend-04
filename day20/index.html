@@ -38,8 +38,8 @@
       });
       // console.log(newData);
       // console.log("-------------");
-      const khaliArr = newData.map((val) => {
-        return { fullName: val.firstName + " " + val.lastName };
+      const khaliArr = newData.map(({ firstName, lastName }) => {
+        return { fullName: firstName + " " + lastName };
       });
 
       // console.log("khaliArr", khaliArr);
@@ -83,11 +83,153 @@
           const filteredProds = val.products.filter((item) => {
             return item.category === "smartphones";
           });
-          console.log(filteredProds);
+          // console.log(filteredProds);
         });
 
       console.log("I am here");
       // );
+
+      // find
+      //new Set
+      console.log("here----");
+
+      // const arr = [
+      //   {
+      //     name: "Ram",
+      //   },
+      //   {
+      //     name: "Ram",
+      //   },
+      //   {
+      //     name: "Sita",
+      //   },
+      //   {
+      //     name: "Hari",
+      //   },
+      // ];
+
+      // const arr = {
+      //   name: "arr",
+      //   ages: 10,
+      // };
+
+      // const newArr = arr.map(({ name }) => {
+      //   return name;
+      // });
+
+      const variable = {
+        name1: "arr",
+        age: "30",
+        isActive: true,
+        isActives: true,
+        isActivesSs: true,
+      };
+      const variable1 = {
+        name2: "arr",
+        age1: "30",
+        act: false,
+        currAct: false,
+      };
+      let variable3 = {
+        ...variable,
+        ...variable1,
+      };
+
+      const sum = [1, 2, 2, 4, 5];
+      console.log([...sum]);
+      // const [b] = [{ name: "abc" }, { name: "test1" }];
+      //Rest parameter
+      // const [c, d, ...e] = [1, 23, 4, 5];
+
+      // console.log(c);
+      // console.log(d);
+      // console.log(e);
+
+      //Spread Operator
+      // console.log("variable3", variable3);
+
+      // console.log(data);
+      // desctructring, spread operator
+      // console.log(name, age);
+      // console.log(arr2.name);
+
+      // console.log(arr1 === arr2);
+      // const data = arr.find((val) => {
+      //   return val.name === "Ram";
+      // });
+
+      // console.log(data);
+
+      const arr = [
+        {
+          name: "Ram",
+        },
+        {
+          name: "Ram",
+        },
+        {
+          name: "Sita",
+        },
+        {
+          name: "Hari",
+        },
+      ];
+      const arr2 = [
+        {
+          name: "Ram",
+        },
+        {
+          name: "Ram",
+        },
+        {
+          name: "Sita",
+        },
+        {
+          name: "Hari",
+        },
+      ];
+      // console.log([...arr2, ...arr]);
+
+      const dupArr = [
+        {
+          name: "Ram",
+          id: 1,
+        },
+        {
+          name: "Ram",
+          id: 1,
+        },
+        {
+          name: "Sita",
+          id: 2,
+        },
+        {
+          name: "Hari",
+          id: 3,
+        },
+      ];
+      // self = [1, 1, 2, 3];
+      // const unq = dupArr
+      //   .map((item) => item.id)
+      //   .filter((value, index, self) => {
+      //     return self.indexOf(value) === index;
+      //   });
+
+      // const nums = [1, 1, 2, 3, 2, 4];
+
+      // console.log([...new Set(nums)]);
+
+      // const newArr = dupArr.map((val) => {
+      //   return val.name;
+      // });
+      // const uniqueDatas = [...new Set(newArr)];
+      // const newDatas = uniqueDatas.map((val) => {
+      //   return dupArr.find((item) => {
+      //     return item.name === val;
+      //   });
+      // });
+
+      // console.log(newDatas);
     </script>
   </body>
 </html>

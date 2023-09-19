@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+  </head>
+  <body>
+    <script>
+      const clouds = [0, 0, 1, 0, 0, 1, 0];
+
+      function jumpingOnClouds(c) {
+        let countToJump = 0;
+        for (let i = 0; i < c.length - 1; ) {
+          if (i + 2 < c.length && c[i + 2] === 0) {
+            i += 2;
+          } else {
+            i++;
+          }
+          countToJump++;
+        }
+        return countToJump;
+      }
+
+      // console.log(jumpingOnClouds(clouds));
+
+      // const data = [
+      //   { product: "Widget", sales: 100, region: "North" },
+      //   { product: "Gadget", sales: 200, region: "South" },
+      //   { product: "Widget", sales: 150, region: "North" },
+      //   { product: "Gadget", sales: 120, region: "South" },
+      // ];
+      // let sum = 0;
+      // const filteredData = data.map((item) => {
+      //   if (item.region === "North") {
+      //     return { name: "Jon Snow" };
+      //   }
+      // });
+
+      const wordCount = "abc abc the okay the";
+
+      const characterCount = wordCount.split(" ");
+
+      console.log(characterCount);
+
+      for (let char of characterCount) {
+        if (characterFrequency[char]) {
+          characterFrequency[char]++;
+          console.log(characterFrequency);
+        } else {
+          characterFrequency[char] = 1;
+          console.log(characterFrequency);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -22,6 +22,11 @@
         return countToJump;
       }
 
+      let name = {};
+      name["a"] = 1;
+
+      console.log(name);
+
       // console.log(jumpingOnClouds(clouds));
 
       // const data = [
@@ -37,21 +42,20 @@
       //   }
       // });
 
-      const wordCount = "abc abc the okay the";
+      const wordCount =
+        "This is a simple example. This is just an example of word frequency.";
 
-      const characterCount = wordCount.split(" ");
-
-      console.log(characterCount);
-
-      for (let char of characterCount) {
+      // const characterCount = wordCount.split(/\W+/);
+      let characterFrequency = {};
+      for (let char of wordCount) {
         if (characterFrequency[char]) {
           characterFrequency[char]++;
-          console.log(characterFrequency);
         } else {
           characterFrequency[char] = 1;
-          console.log(characterFrequency);
         }
       }
+
+      console.log(characterFrequency);
     </script>
   </body>
 </html>

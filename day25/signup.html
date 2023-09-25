@@ -25,26 +25,28 @@
           />
         </div>
         <div class="mb-3">
-          <label for="fullName" class="form-label">Full Name</label>
+          <label for="email" class="form-label">Email</label>
           <input
             type="email"
             class="form-control"
-            id="fullName"
+            id="signup-email"
             aria-describedby="emailHelp"
           />
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
+          <input type="password" class="form-control" id="signup-password" />
         </div>
-        <button type="submit" id="signup-btn" class="btn btn-secondary">
+        <button
+          type="submit"
+          onclick="signupHandler(event)"
+          class="btn btn-secondary"
+        >
           Signup
         </button>
+        <span class="text-danger" id="error-msg"></span>
       </form>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>

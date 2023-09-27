@@ -17,15 +17,15 @@
         type="button"
         class="btn btn-outline-primary"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#exampleModa"
       >
         Add Product
       </button>
       <div id="container"></div>
-      <!-- Modal -->
+      <!--Add Product Modal -->
       <div
         class="modal fade"
-        id="exampleModal"
+        id="exampleModa"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -119,6 +119,91 @@
           </div>
         </div>
       </div>
+      <!--View Product Modal -->
+      <div
+        class="modal fade"
+        id="viewModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                View Product Details
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <img id="view-imageURL" width="300" height="300" alt="" />
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="view-title"
+                  placeholder="Product Title"
+                />
+                <label for="title">Product Title</label>
+              </div>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="view-price"
+                      placeholder="Product price"
+                    />
+                    <label for="price">Product price</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="view-category"
+                      readonly
+                      placeholder="Product category"
+                    />
+                    <label for="category">Product category</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    placeholder="Product Description"
+                    id="view-description"
+                  ></textarea>
+                  <label for="description">Description</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="closebtn"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -130,6 +215,8 @@
       //     console.log(value);
       //   });
 
+      let actualProduct = [];
+
       const container = document.getElementById("container");
       container.style.display = "flex";
       container.style.flexWrap = "wrap";
@@ -138,7 +225,12 @@
       const fetchProducts = async () => {
         const resp = await fetch("https://dummyjson.com/products");
         const { products } = await resp.json();
+        actualProduct = products;
+        newProducts(products);
+      };
 
+      const newProducts = (products) => {
+        container.innerHTML = "";
         for (let product of products) {
           const card = document.createElement("div");
           card.style.width = "22%";
@@ -165,59 +257,79 @@
           card.append(h2);
 
           const p = document.createElement("p");
-          p.innerText = product.description;
+          p.innerText = product.description.slice(0, 14) + "...";
+
+          const editbutton = document.createElement("button");
+          editbutton.innerText = "Edit";
+          editbutton.classList.add(
+            "btn",
+            "btn-outline-secondary",
+            "btn-sm",
+            "mb-2"
+          );
+
+          const button = document.createElement("button");
+          button.innerText = "Delete";
+
+          const viewBtn = document.createElement("button");
+          viewBtn.innerText = "View";
+
+          viewBtn.setAttribute("data-bs-toggle", "modal");
+          viewBtn.setAttribute("data-bs-target", "#viewModal");
+          viewBtn.classList.add(
+            "btn",
+            "btn-outline-secondary",
+            "btn-sm",
+            "mb-2"
+          );
+          viewBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            document.getElementById("view-imageURL").src = product.thumbnail;
+            setreadonly(document.getElementById("view-title"));
+            setreadonly(document.getElementById("view-price"));
+            document.getElementById("view-title").value = product.title;
+          });
+
+          button.classList.add("btn", "btn-outline-danger", "btn-sm", "mb-2");
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const filteredProduct = products.filter((prod) => {
+              if (prod.id !== product.id) {
+                return true;
+              }
+              return prod.id !== product.id;
+            });
+            newProducts(filteredProduct);
+          });
 
           card.append(p);
+          card.append(viewBtn);
+          card.append(editbutton);
+          card.append(button);
 
           container.append(card);
         }
       };
-
+      function setreadonly(element) {
+        element.setAttribute("readOnly", "true");
+      }
       fetchProducts();
 
       function addProduct() {
         const imageURL = document.querySelector("#imageURL").value;
-        const title = document.querySelector("#title").value;
+        const abc = document.querySelector("#title").value;
 
         const description = document.querySelector("#description").value;
-
-        const card = document.createElement("div");
-        card.style.width = "22%";
-        card.style.height = "400px";
-        card.className = "card";
-
-        const cardHeader = document.createElement("div");
-        cardHeader.className = "card-header h-50";
-
-        const image = document.createElement("img");
-        image.src = imageURL;
-        image.classList = "h-100 w-100";
-
-        cardHeader.append(image);
-
-        card.append(cardHeader);
-
-        const h2 = document.createElement("h2");
-        h2.innerText = title.length > 14 ? title.slice(0, 13) + "..." : title;
-
-        card.append(h2);
-
-        const p = document.createElement("p");
-        p.innerText = description;
-
-        card.append(p);
-
-        container.append(card);
-
+        let newProduct = {
+          id: Date.now(),
+          title: abc,
+          description,
+          thumbnail: imageURL,
+        };
+        //API call -> POST METHOD
+        actualProduct = [newProduct, ...actualProduct];
+        newProducts(actualProduct);
         document.getElementById("closebtn").click();
-
-        // console.log({
-        //   imageURL,
-        //   title,
-        //   price,
-        //   category,
-        //   description,
-        // });
       }
     </script>
     <script

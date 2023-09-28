@@ -341,6 +341,7 @@
             "btn-sm",
             "mb-2"
           );
+
           // window.location.href="edit-form.html"
           editbutton.setAttribute("data-bs-toggle", "modal");
           editbutton.setAttribute("data-bs-target", "#editModal");
@@ -427,6 +428,8 @@
           }
           // return product.id === productId ? editedFinalData : product;
         });
+
+        actualProduct = editedProductData;
 
         newProducts(editedProductData);
 

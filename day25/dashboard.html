@@ -186,7 +186,7 @@
                     placeholder="Product Description"
                     id="view-description"
                   ></textarea>
-                  <label for="description">Description</label>
+                  <!-- <label for="description">Description</label> -->
                 </div>
               </div>
             </div>
@@ -204,6 +204,79 @@
           </div>
         </div>
       </div>
+      <!--Edit Product Modal -->
+      <div
+        class="modal fade"
+        id="editModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Edit Product Details
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="edit-imageURL"
+                  placeholder="Enter image url here"
+                />
+                <label for="imageURL">Product Image URL</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="edit-title"
+                  placeholder="Product Title"
+                />
+                <label for="title">Product Title</label>
+              </div>
+
+              <div class="row">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    placeholder="Product Description"
+                    id="edit-description"
+                  ></textarea>
+                  <label for="description">Description</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="edit-closebtn"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                onclick="editProduct()"
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -216,6 +289,7 @@
       //   });
 
       let actualProduct = [];
+      let productId = "";
 
       const container = document.getElementById("container");
       container.style.display = "flex";
@@ -267,6 +341,21 @@
             "btn-sm",
             "mb-2"
           );
+          // window.location.href="edit-form.html"
+          editbutton.setAttribute("data-bs-toggle", "modal");
+          editbutton.setAttribute("data-bs-target", "#editModal");
+          editbutton.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            productId = product.id;
+            // 2nd step -> set actual value of that product
+            const imageURL = document.getElementById("edit-imageURL");
+            imageURL.value = product.thumbnail;
+            const title = document.getElementById("edit-title");
+            title.value = product.title;
+            const description = document.getElementById("edit-description");
+            description.value = product.description;
+          });
 
           const button = document.createElement("button");
           button.innerText = "Delete";
@@ -288,15 +377,19 @@
             setreadonly(document.getElementById("view-title"));
             setreadonly(document.getElementById("view-price"));
             document.getElementById("view-title").value = product.title;
+            document.getElementById("view-price").value = product.price;
+            document.getElementById("view-category").value = product.category;
+            document.getElementById("view-description").value =
+              product.description;
           });
 
           button.classList.add("btn", "btn-outline-danger", "btn-sm", "mb-2");
           button.addEventListener("click", (event) => {
             event.preventDefault();
             const filteredProduct = products.filter((prod) => {
-              if (prod.id !== product.id) {
-                return true;
-              }
+              // if (prod.id !== product.id) {
+              //   return true;
+              // }
               return prod.id !== product.id;
             });
             newProducts(filteredProduct);
@@ -314,6 +407,31 @@
         element.setAttribute("readOnly", "true");
       }
       fetchProducts();
+      // 3rd step
+      function editProduct() {
+        const title = document.getElementById("edit-title").value;
+        const description = document.getElementById("edit-description").value;
+        const imageURL = document.getElementById("edit-imageURL").value;
+        const editedFinalData = {
+          id: productId,
+          title,
+          description,
+          thumbnail: imageURL,
+        };
+
+        const editedProductData = actualProduct.map((product) => {
+          if (product.id === productId) {
+            return editedFinalData;
+          } else {
+            return product;
+          }
+          // return product.id === productId ? editedFinalData : product;
+        });
+
+        newProducts(editedProductData);
+
+        document.getElementById("edit-closebtn").click();
+      }
 
       function addProduct() {
         const imageURL = document.querySelector("#imageURL").value;

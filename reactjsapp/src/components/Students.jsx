@@ -15,7 +15,7 @@ const Students = ({ students }) => {
 
   // data["color"]
   // data["color"]
-
+  //recursion function //stack - LIFO/FILO
   const displayTableObjectData = (data) => {
     return (
       <table className="table table-bordered">
@@ -36,33 +36,36 @@ const Students = ({ students }) => {
       </table>
     );
   };
+
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          {tableHeaders.map((header) => {
-            return <th key={header}>{header.toUpperCase()}</th>;
+    <>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            {tableHeaders.map((header) => {
+              return <th key={header}>{header.toUpperCase()}</th>;
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((student, index) => {
+            return (
+              <tr key={student.id}>
+                {Object.values(students[index]).map((value) => {
+                  return (
+                    <td key={value}>
+                      {typeof value === "object"
+                        ? displayTableObjectData(value)
+                        : value}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
           })}
-        </tr>
-      </thead>
-      <tbody>
-        {students.map((student, index) => {
-          return (
-            <tr key={student.id}>
-              {Object.values(students[index]).map((value) => {
-                return (
-                  <td key={value}>
-                    {typeof value === "object"
-                      ? displayTableObjectData(value)
-                      : value}
-                  </td>
-                );
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </Table>
+        </tbody>
+      </Table>
+    </>
   );
 };
 

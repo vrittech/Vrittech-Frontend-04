@@ -5,6 +5,9 @@ import Product from "./components/Product";
 import NavMenu from "./components/Navbar";
 import Students from "./components/Students";
 
+import { Route, Routes } from "react-router-dom";
+import PageNotFound from "./components/PageNotFound";
+
 function AppComponent() {
   const products = [
     {
@@ -631,16 +634,20 @@ function AppComponent() {
     },]
 
   //Data passing using props -> Parent - Child data pass function, value, string, object
-
+  //WildCard Routing
   return (
     <>
-      <NavMenu />
-      <h2 className="text-center">Products</h2>
-      <div className="container">
-        <Product products={products} />
-        <Students students={users} />
-      </div>
 
+      <NavMenu />
+
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Product products={products} />} />
+          <Route path="/students" element={<Students students={users} />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+
+      </div>
 
     </>
   )

@@ -1,15 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Counter from "./components/Counter";
+import QuoteDisplay from "./components/Student";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Counter />} />
+        <Route path="/quotes" element={<QuoteDisplay />} />
       </Routes>
     </>
   );

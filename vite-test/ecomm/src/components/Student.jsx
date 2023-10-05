@@ -19,13 +19,15 @@ const QuoteDisplay = () => {
     const response = await axios.get("https://dummyjson.com/quotes");
 
     const { quotes } = response.data;
+    if (id > quotes.length) {
+      setId(1);
+    } else {
+      const qts = quotes.find((item) => item.id === id);
 
-    const qts = quotes.find((item) => item.id === id);
-
-    setAuthor(qts.author);
-    setQuote(qts.quote);
-
-    setId(id + 1);
+      setAuthor(qts.author);
+      setQuote(qts.quote);
+      setId(id + 1);
+    }
   };
   return (
     <Card>

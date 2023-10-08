@@ -52,7 +52,7 @@ const Counter = () => {
 
   return (
     <Card>
-      <CardHeader>
+      {/* <CardHeader>
         <h1>Counter</h1>
       </CardHeader>
       <CardBody>
@@ -69,7 +69,7 @@ const Counter = () => {
         <Button variant="danger" onClick={reset}>
           Reset
         </Button>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 };

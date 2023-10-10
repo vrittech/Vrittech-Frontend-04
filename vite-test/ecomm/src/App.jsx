@@ -5,6 +5,7 @@ import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import Products from "./pages/Products";
+import AddProductForm from "./components/AddProductForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/quotes" element={<QuoteDisplay />} />
+        <Route path="/product/add" element={<AddProductForm />} />
       </Routes>
       <ToastContainer />
     </>

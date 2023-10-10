@@ -5,13 +5,23 @@ import Loader from "../components/Loader";
 import { errorToast } from "../services/toast.service";
 import { Button } from "react-bootstrap";
 import AddProduct from "../components/AddProduct";
+import { useNavigate } from "react-router-dom";
+import EditProduct from "../components/EditProductForm";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
 
+  const [product, setProduct] = useState({
+    title: "",
+    thumbnail: "",
+    description: "",
+  });
+
   // let products = [];
   const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [editedProduct, setEditedProduct] = useState({});
   const URL = import.meta.env.VITE_BACKEND_URL;
 
   const getData = async () => {
@@ -43,10 +53,50 @@ const Products = () => {
   const showProduct = (e) => {
     e.preventDefault();
     setShow(true);
+
+    // navigate("/product/add");
   };
 
   function handleClose() {
     setShow(false);
+  }
+
+  const handleChange = (e) => {
+    setProduct((prev) => {
+      return { ...prev, [e.target.name]: e.target.value, id: Date.now() };
+    });
+  };
+
+  const addProductHandler = (e) => {
+    e.preventDefault();
+
+    // products.unshift(product);
+    // console.log(products);
+    //API call
+
+    setProducts([product, ...products]);
+    setShow(false);
+  };
+
+  function handleCloseEdit() {
+    setShowEdit(false);
+  }
+
+  const editHandler = (e, id) => {
+    e.preventDefault();
+
+    // find
+
+    const prod = products.find((product) => product.id === id);
+
+    setEditedProduct(prod);
+    setShowEdit(true);
+  };
+
+  function handleEditCHange(e) {
+    setEditedProduct((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
   }
 
   return (
@@ -61,11 +111,27 @@ const Products = () => {
           <div className="d-flex flex-wrap gap-4">
             {products.map((product) => {
               return (
-                <ProductList product={product} deleteHandler={deleteHandler} />
+                <ProductList
+                  key={product.id}
+                  product={product}
+                  deleteHandler={deleteHandler}
+                  editHandler={editHandler}
+                />
               );
             })}
           </div>
-          <AddProduct show={show} handleClose={handleClose} />
+          <AddProduct
+            show={show}
+            handleClose={handleClose}
+            handleChange={handleChange}
+            addProductHandler={addProductHandler}
+          />
+          <EditProduct
+            show={showEdit}
+            handleClose={handleCloseEdit}
+            editedProduct={editedProduct}
+            handleEditCHange={handleEditCHange}
+          />
         </>
       )}
     </>

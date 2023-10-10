@@ -1,10 +1,15 @@
 import React from "react";
 import { Button, Form, Modal, FloatingLabel } from "react-bootstrap";
 
-const AddProduct = ({ show, handleClose, handleChange, addProductHandler }) => {
+const EditProduct = ({
+  show,
+  handleClose,
+  editedProduct,
+  handleEditCHange,
+}) => {
   return (
     <Modal show={show} handleClose={handleClose}>
-      <Modal.Header closeButton>Add Product Form</Modal.Header>
+      <Modal.Header closeButton>Edit Product Form</Modal.Header>
 
       <Modal.Body>
         <Form>
@@ -17,7 +22,8 @@ const AddProduct = ({ show, handleClose, handleChange, addProductHandler }) => {
               type="text"
               placeholder="Product Image"
               name="thumbnail"
-              onChange={handleChange}
+              value={editedProduct.thumbnail}
+              onChange={handleEditCHange}
             />
           </FloatingLabel>
           <FloatingLabel
@@ -29,7 +35,8 @@ const AddProduct = ({ show, handleClose, handleChange, addProductHandler }) => {
               type="text"
               name="title"
               placeholder="Product Title"
-              onChange={handleChange}
+              value={editedProduct.title}
+              onChange={handleEditCHange}
             />
           </FloatingLabel>
           <FloatingLabel controlId="floatingDesc" label="Description">
@@ -37,7 +44,8 @@ const AddProduct = ({ show, handleClose, handleChange, addProductHandler }) => {
               type="text"
               name="description"
               placeholder="Description"
-              onChange={handleChange}
+              value={editedProduct.description}
+              onChange={handleEditCHange}
             />
           </FloatingLabel>
         </Form>
@@ -46,12 +54,10 @@ const AddProduct = ({ show, handleClose, handleChange, addProductHandler }) => {
         <Button variant="danger" onClick={handleClose}>
           Cancel
         </Button>
-        <Button variant="primary" onClick={addProductHandler}>
-          Add Product
-        </Button>
+        <Button variant="primary">Edit Product</Button>
       </Modal.Footer>
     </Modal>
   );
 };
 
-export default AddProduct;
+export default EditProduct;

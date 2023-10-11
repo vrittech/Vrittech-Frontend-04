@@ -6,6 +6,7 @@ const EditProduct = ({
   handleClose,
   editedProduct,
   handleEditCHange,
+  editProduct,
 }) => {
   return (
     <Modal show={show} handleClose={handleClose}>
@@ -54,7 +55,9 @@ const EditProduct = ({
         <Button variant="danger" onClick={handleClose}>
           Cancel
         </Button>
-        <Button variant="primary">Edit Product</Button>
+        <Button variant="primary" onClick={(e) => editProduct(e)}>
+          Edit Product
+        </Button>
       </Modal.Footer>
     </Modal>
   );

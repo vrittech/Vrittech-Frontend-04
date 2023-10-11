@@ -36,15 +36,16 @@ function SignInPage() {
       password,
     };
 
+    // Authentication -> Correct user is trying to access the resource/page -> authenticated
+    // Authorization -> Correct role after user is authenticated
+
     axios
       .post("https://backend-mu-pied.vercel.app/users/login", data)
       .then((resp) => {
-        console.log(resp);
-
         if (resp.data.status) {
           //navigate
-
-          navigate("/quotes");
+          localStorage.setItem("isLoggedIn", true);
+          navigate("/products");
 
           successToast(resp.data.message);
         }

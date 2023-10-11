@@ -6,6 +6,9 @@ import SignUpPage from "./pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import Products from "./pages/Products";
 import AddProductForm from "./components/AddProductForm";
+import SecureRoute from "./routes/SecureRoute";
+
+//Secure Route
 
 function App() {
   return (
@@ -13,9 +16,11 @@ function App() {
       <Routes>
         <Route path="/" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/quotes" element={<QuoteDisplay />} />
-        <Route path="/product/add" element={<AddProductForm />} />
+        <Route path="" element={<SecureRoute />}>
+          <Route path="/products" element={<Products />} />
+          <Route path="/quotes" element={<QuoteDisplay />} />
+          <Route path="/product/add" element={<AddProductForm />} />
+        </Route>
       </Routes>
       <ToastContainer />
     </>

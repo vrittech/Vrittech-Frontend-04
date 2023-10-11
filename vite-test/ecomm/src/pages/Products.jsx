@@ -5,7 +5,6 @@ import Loader from "../components/Loader";
 import { errorToast } from "../services/toast.service";
 import { Button } from "react-bootstrap";
 import AddProduct from "../components/AddProduct";
-import { useNavigate } from "react-router-dom";
 import EditProduct from "../components/EditProductForm";
 
 const Products = () => {
@@ -90,6 +89,7 @@ const Products = () => {
     const prod = products.find((product) => product.id === id);
 
     setEditedProduct(prod);
+
     setShowEdit(true);
   };
 
@@ -97,6 +97,16 @@ const Products = () => {
     setEditedProduct((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
+  }
+
+  function editProduct(e) {
+    e.preventDefault();
+    //API CALL - response true
+    const updatedProd = products.map((product) => {
+      return product.id === editedProduct.id ? editedProduct : product;
+    });
+    setProducts(updatedProd);
+    setShowEdit(false);
   }
 
   return (
@@ -131,6 +141,7 @@ const Products = () => {
             handleClose={handleCloseEdit}
             editedProduct={editedProduct}
             handleEditCHange={handleEditCHange}
+            editProduct={editProduct}
           />
         </>
       )}

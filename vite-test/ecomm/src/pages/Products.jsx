@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import ProductList from "../components/ProductList";
 import Loader from "../components/Loader";
 import { errorToast } from "../services/toast.service";
-import { Button } from "react-bootstrap";
+import { Button, FloatingLabel, Form } from "react-bootstrap";
 import AddProduct from "../components/AddProduct";
 import EditProduct from "../components/EditProductForm";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [originalProduct, setOriginalProducts] = useState([]);
 
   const [product, setProduct] = useState({
     title: "",
@@ -30,6 +31,7 @@ const Products = () => {
       // const users = await axios.get(URL + "students");
 
       setProducts(data.products);
+      setOriginalProducts(data.products);
       setIsLoading(false);
     } catch (error) {
       errorToast(error.response.data);
@@ -109,15 +111,34 @@ const Products = () => {
     setShowEdit(false);
   }
 
+  function searchProduct(e) {
+    const searchedData = originalProduct.filter((product) => {
+      return product.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setProducts(searchedData);
+  }
+
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          <Button variant="info" onClick={showProduct}>
-            Add Product
-          </Button>
+          <div className="d-flex justify-content-between mb-5">
+            <Button variant="info" onClick={showProduct}>
+              Add Product
+            </Button>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Search product here"
+            >
+              <Form.Control
+                type="text"
+                name="searchKey"
+                onChange={searchProduct}
+              />
+            </FloatingLabel>
+          </div>
           <div className="d-flex flex-wrap gap-4">
             {products.map((product) => {
               return (

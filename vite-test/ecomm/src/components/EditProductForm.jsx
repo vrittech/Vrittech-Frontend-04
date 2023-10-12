@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Modal, FloatingLabel } from "react-bootstrap";
+import { returnDiscountAmount, returnTotal } from "../utils/helper";
 
 const EditProduct = ({
   show,
@@ -40,13 +41,57 @@ const EditProduct = ({
               onChange={handleEditCHange}
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingDesc" label="Description">
+          <FloatingLabel
+            controlId="floatingDesc"
+            label="Description"
+            className="mb-3"
+          >
             <Form.Control
               type="text"
               name="description"
               placeholder="Description"
               value={editedProduct.description}
               onChange={handleEditCHange}
+            />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingDesc"
+            label="Discount Percentage"
+            className="mb-3"
+          >
+            <Form.Control
+              type="text"
+              name="discountPercentage"
+              placeholder="Discount Percentage"
+              value={editedProduct.discountPercentage}
+              onChange={handleEditCHange}
+            />
+          </FloatingLabel>
+          <FloatingLabel controlId="price" label="Sub Total" className="mb-3">
+            <Form.Control
+              type="text"
+              readOnly
+              value={"$" + editedProduct.price}
+            />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="Amount"
+            label="Discount Amount"
+            className="mb-3"
+          >
+            <Form.Control
+              type="text"
+              readOnly
+              placeholder="Discount Amount"
+              value={"$" + returnDiscountAmount(editedProduct)}
+            />
+          </FloatingLabel>
+          <FloatingLabel controlId="TOtal" label="TOtal" className="mb-3">
+            <Form.Control
+              type="text"
+              readOnly
+              placeholder=" TOtal"
+              value={"$" + returnTotal(editedProduct)}
             />
           </FloatingLabel>
         </Form>

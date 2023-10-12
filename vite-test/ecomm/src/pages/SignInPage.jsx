@@ -44,7 +44,7 @@ function SignInPage() {
       .then((resp) => {
         if (resp.data.status) {
           //navigate
-          localStorage.setItem("isLoggedIn", true);
+          sessionStorage.setItem("isLoggedIn", true);
           navigate("/products");
 
           successToast(resp.data.message);

@@ -10,6 +10,7 @@ import EditProduct from "../components/EditProductForm";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [originalProduct, setOriginalProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const [product, setProduct] = useState({
     title: "",
@@ -32,6 +33,12 @@ const Products = () => {
 
       setProducts(data.products);
       setOriginalProducts(data.products);
+
+      const categories = data.products.map((product) => {
+        return product.category;
+      });
+      const uniqueCategories = [...new Set(categories)];
+      setCategories(uniqueCategories);
       setIsLoading(false);
     } catch (error) {
       errorToast(error.response.data);
@@ -118,6 +125,17 @@ const Products = () => {
     setProducts(searchedData);
   }
 
+  function filterProducts(data) {
+    if (data !== "") {
+      const filteredProd = originalProduct.filter((item) => {
+        return item.category === data;
+      });
+      setProducts(filteredProd);
+    } else {
+      setProducts(originalProduct);
+    }
+  }
+
   return (
     <>
       {isLoading ? (
@@ -128,6 +146,20 @@ const Products = () => {
             <Button variant="info" onClick={showProduct}>
               Add Product
             </Button>
+            <Form.Select
+              style={{ width: "170px" }}
+              size="sm"
+              onChange={(e) => filterProducts(e.target.value)}
+            >
+              <option value="">Filter by category</option>
+              {categories.map((category) => {
+                return (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                );
+              })}
+            </Form.Select>
             <FloatingLabel
               controlId="floatingInput"
               label="Search product here"

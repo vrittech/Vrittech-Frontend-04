@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   Card,
@@ -7,11 +7,15 @@ import {
   CardHeader,
 } from "react-bootstrap";
 import axios from "axios";
+import { GlobalContext } from "../context/GlobalContext";
 
 const QuoteDisplay = () => {
   const [id, setId] = useState(1);
   const [author, setAuthor] = useState("");
   const [quote, setQuote] = useState("");
+
+  const data = useContext(GlobalContext);
+  console.log(data);
 
   const toggleQuotes = async (e) => {
     e.preventDefault();
@@ -38,6 +42,7 @@ const QuoteDisplay = () => {
         <b> Author:{author}</b>
         <br />
         <i className="">Quote:{quote}</i>
+        <p>{data[0].name}</p>
       </CardBody>
       <CardFooter>
         <Button variant="info" className="me-2" onClick={toggleQuotes}>

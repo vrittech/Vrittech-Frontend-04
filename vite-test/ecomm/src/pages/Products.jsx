@@ -1,13 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import ProductList from "../components/ProductList";
 import Loader from "../components/Loader";
 import { errorToast } from "../services/toast.service";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import AddProduct from "../components/AddProduct";
 import EditProduct from "../components/EditProductForm";
+import ProductContext from "../context/ProductContext";
 
-const Products = () => {
+const Products = ({ students }) => {
   const [products, setProducts] = useState([]);
   const [originalProduct, setOriginalProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -142,60 +143,63 @@ const Products = () => {
         <Loader />
       ) : (
         <>
-          <div className="d-flex justify-content-between mb-5">
-            <Button variant="info" onClick={showProduct}>
-              Add Product
-            </Button>
-            <Form.Select
-              style={{ width: "170px" }}
-              size="sm"
-              onChange={(e) => filterProducts(e.target.value)}
-            >
-              <option value="">Filter by category</option>
-              {categories.map((category) => {
+          <ProductContext.Provider
+            value={{ editHandler, deleteHandler, products }}
+          >
+            <div className="d-flex justify-content-between mb-5">
+              <Button variant="info" onClick={showProduct}>
+                Add Product
+              </Button>
+              <Form.Select
+                style={{ width: "170px" }}
+                size="sm"
+                onChange={(e) => filterProducts(e.target.value)}
+              >
+                <option value="">Filter by category</option>
+                {categories.map((category) => {
+                  return (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+              <FloatingLabel
+                controlId="floatingInput"
+                label="Search product here"
+              >
+                <Form.Control
+                  type="text"
+                  name="searchKey"
+                  onChange={searchProduct}
+                />
+              </FloatingLabel>
+            </div>
+            <div className="d-flex flex-wrap gap-4">
+              {products.map((product) => {
                 return (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
+                  <ProductList
+                    key={product.id}
+                    product={product}
+                    students={students}
+                  />
                 );
               })}
-            </Form.Select>
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Search product here"
-            >
-              <Form.Control
-                type="text"
-                name="searchKey"
-                onChange={searchProduct}
-              />
-            </FloatingLabel>
-          </div>
-          <div className="d-flex flex-wrap gap-4">
-            {products.map((product) => {
-              return (
-                <ProductList
-                  key={product.id}
-                  product={product}
-                  deleteHandler={deleteHandler}
-                  editHandler={editHandler}
-                />
-              );
-            })}
-          </div>
-          <AddProduct
-            show={show}
-            handleClose={handleClose}
-            handleChange={handleChange}
-            addProductHandler={addProductHandler}
-          />
-          <EditProduct
-            show={showEdit}
-            handleClose={handleCloseEdit}
-            editedProduct={editedProduct}
-            handleEditCHange={handleEditCHange}
-            editProduct={editProduct}
-          />
+            </div>
+            <AddProduct
+              show={show}
+              handleClose={handleClose}
+              handleChange={handleChange}
+              addProductHandler={addProductHandler}
+            />
+            <EditProduct
+              show={showEdit}
+              handleClose={handleCloseEdit}
+              editedProduct={editedProduct}
+              handleEditCHange={handleEditCHange}
+              editProduct={editProduct}
+            />
+          </ProductContext.Provider>
         </>
       )}
     </>

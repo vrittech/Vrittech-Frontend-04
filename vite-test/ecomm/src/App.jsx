@@ -7,21 +7,45 @@ import { ToastContainer } from "react-toastify";
 import Products from "./pages/Products";
 import AddProductForm from "./components/AddProductForm";
 import SecureRoute from "./routes/SecureRoute";
+import { GlobalContext } from "./context/GlobalContext";
 
 //Secure Route
 
 function App() {
+  const students = [
+    {
+      id: 1,
+      name: "Samaya",
+    },
+    {
+      id: 2,
+      name: "Ayush",
+    },
+    {
+      id: 3,
+      name: "Sashi",
+    },
+  ];
+
+  const returnTotal = () => {
+    return students.length;
+  };
   return (
     <>
-      <Routes>
-        <Route path="/" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="" element={<SecureRoute />}>
-          <Route path="/products" element={<Products />} />
-          <Route path="/quotes" element={<QuoteDisplay />} />
-          <Route path="/product/add" element={<AddProductForm />} />
-        </Route>
-      </Routes>
+      <GlobalContext.Provider value={{ students, returnTotal }}>
+        <Routes>
+          <Route path="/" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="" element={<SecureRoute />}>
+            <Route
+              path="/products"
+              element={<Products students={students} />}
+            />
+            <Route path="/quotes" element={<QuoteDisplay />} />
+            <Route path="/product/add" element={<AddProductForm />} />
+          </Route>
+        </Routes>
+      </GlobalContext.Provider>
       <ToastContainer />
     </>
   );

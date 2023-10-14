@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Form, Modal, FloatingLabel } from "react-bootstrap";
+import ProductContext from "../context/ProductContext";
 
 const AddProduct = ({ show, handleClose, handleChange, addProductHandler }) => {
+  const data = useContext(ProductContext);
+  console.log(data);
   return (
     <Modal show={show} handleClose={handleClose}>
-      <Modal.Header closeButton>Add Product Form</Modal.Header>
+      <Modal.Header closeButton>
+        Add Product Form || Total Products({data.products.length})
+      </Modal.Header>
 
       <Modal.Body>
         <Form>

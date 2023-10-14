@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -18,6 +18,10 @@ function SignInPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const id = useId();
+
+  console.log(id);
 
   const navigate = useNavigate();
 
@@ -63,6 +67,7 @@ function SignInPage() {
           <Form.Control
             type="email"
             name="email"
+            id={id}
             placeholder="Enter email"
             // onChange={handleChange}
             onChange={(e) => setEmail(e.target.value)}

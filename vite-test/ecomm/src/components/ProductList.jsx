@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-} from "react-bootstrap";
+import { Card, CardBody, CardHeader } from "react-bootstrap";
 import { returnDiscountAmount, returnTotal } from "../utils/helper";
+import CardFoot from "./CardFoot";
 
-const ProductList = ({ product, deleteHandler, editHandler }) => {
+const ProductList = ({ product, students }) => {
   return (
     <Card style={{ width: "30%", height: "auto" }}>
       <CardHeader className="h-50 w-100">
@@ -35,21 +30,7 @@ const ProductList = ({ product, deleteHandler, editHandler }) => {
           <b>Total:</b>${returnTotal(product)}
         </p>
       </CardBody>
-      <CardFooter>
-        <Button variant="primary" className="me-3">
-          View
-        </Button>
-        <Button
-          variant="secondary"
-          className="me-3"
-          onClick={(e) => editHandler(e, product.id)}
-        >
-          Edit
-        </Button>
-        <Button variant="danger" onClick={(e) => deleteHandler(e, product.id)}>
-          Delete
-        </Button>
-      </CardFooter>
+      <CardFoot product={product} students={students} />
     </Card>
   );
 };

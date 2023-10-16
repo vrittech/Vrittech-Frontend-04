@@ -31,7 +31,7 @@ const Products = ({ students }) => {
       setIsLoading(true);
       const { data } = await axios.get(URL + "product");
       // const users = await axios.get(URL + "students");
-
+      localStorage.setItem("products", JSON.stringify(data.products));
       setProducts(data.products);
       setOriginalProducts(data.products);
 

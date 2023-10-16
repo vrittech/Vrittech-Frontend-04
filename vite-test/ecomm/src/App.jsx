@@ -8,6 +8,7 @@ import Products from "./pages/Products";
 import AddProductForm from "./components/AddProductForm";
 import SecureRoute from "./routes/SecureRoute";
 import { GlobalContext } from "./context/GlobalContext";
+import Counter from "./components/Counter";
 
 //Secure Route
 
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/counter" element={<Counter />} />
           <Route path="" element={<SecureRoute />}>
             <Route
               path="/products"

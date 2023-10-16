@@ -3,9 +3,10 @@ import { useId, useState } from "react";
 import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { errorToast, successToast } from "../services/toast.service";
+import { useDispatch } from "react-redux";
+import { login } from "../slice/authSlice";
 
 function SignInPage() {
   // let email = "";
@@ -21,9 +22,9 @@ function SignInPage() {
 
   const id = useId();
 
-  console.log(id);
-
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     if (e.target.name === "email") {
@@ -48,6 +49,7 @@ function SignInPage() {
       .then((resp) => {
         if (resp.data.status) {
           //navigate
+          dispatch(login(resp.data.data.jwt));
           sessionStorage.setItem("isLoggedIn", true);
           navigate("/products");
 

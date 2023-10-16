@@ -7,69 +7,53 @@ import {
   CardFooter,
   CardHeader,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decrement,
+  increment,
+  incrementByValue,
+  reset,
+} from "../slice/counterSlice";
 
 const Counter = () => {
-  let [count, setCount] = useState(10000000);
-  const [student, setStudent] = useState("");
-
-  //Side effect
-  //COmponent first render/ every render
-  useEffect(() => {
-    setTimeout(() => {
-      setCount(count - 1);
-    }, 1000);
+  const dispatch = useDispatch();
+  const count = useSelector((state) => {
+    return state.counterReducer.count;
   });
-
-  async function getAllProducts() {
-    const resp = await axios.get("/products");
-    setProduct(resp.data.products);
-  }
-  //Dependency array
-  // useEffect( () => {
-  //   console.log("Counter Component (First page render/load)");
-  // getAllProducts();
-  // }, []);
-  // let count = 0;
-
-  useEffect(() => {
-    console.log("Specific state change ( render/load)");
-  }, [count]);
-
-  const increment = (e) => {
-    e.preventDefault();
-    setCount(count + 1);
-  };
-  const decrement = (e) => {
-    e.preventDefault();
-    // setCount(count - 1);
-    setStudent("Ram");
-  };
-  const reset = (e) => {
-    e.preventDefault();
-    // setCount(0);
-    setStudent("Shyam");
-  };
 
   return (
     <Card>
-      {/* <CardHeader>
+      <CardHeader>
         <h1>Counter</h1>
       </CardHeader>
       <CardBody>
         <h4>{count}</h4>
-        <h4>{student}</h4>
       </CardBody>
       <CardFooter>
-        <Button variant="success" className="me-2" onClick={increment}>
+        <Button
+          variant="success"
+          className="me-2"
+          onClick={(e) => dispatch(increment())}
+        >
           Increment
         </Button>
-        <Button variant="warning" className="me-2" onClick={decrement}>
+        <Button
+          variant="warning"
+          className="me-2"
+          onClick={(e) => dispatch(decrement())}
+        >
           Decrement
         </Button>
-        <Button variant="danger" onClick={reset}>
+        <Button variant="danger" onClick={(e) => dispatch(reset())}>
           Reset
         </Button>
-      </CardFooter> */}
+        <input
+          type="number"
+          className="form-control mt-4"
+          placeholder="Enter a number here"
+          onChange={(e) => dispatch(incrementByValue(e.target.value))}
+        />
+      </CardFooter>
     </Card>
   );
 };

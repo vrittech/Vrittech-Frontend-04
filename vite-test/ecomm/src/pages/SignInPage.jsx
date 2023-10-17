@@ -50,7 +50,7 @@ function SignInPage() {
         if (resp.data.status) {
           //navigate
           dispatch(login(resp.data.data.jwt));
-          sessionStorage.setItem("isLoggedIn", true);
+
           navigate("/products");
 
           successToast(resp.data.message);

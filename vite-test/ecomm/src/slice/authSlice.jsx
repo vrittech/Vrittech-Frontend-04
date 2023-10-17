@@ -13,6 +13,10 @@ const authSLice = createSlice({
       state.isLoggedIn = true;
       state.jwt = data.payload;
     },
+    logout: (state) => {
+      state.isLoggedIn = false;
+      state.jwt = "";
+    },
   },
 });
 

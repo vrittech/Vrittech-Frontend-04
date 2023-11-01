@@ -1,0 +1,188 @@
+[
+  {
+    "name": "Arrow Shirts",
+
+    "productImage": "https://cdn00.nnnow.com/web-images/large/styles/EJYQ3P2NAWK/1653996464426/1.jpg",
+
+    "brand": "Arrow Shirts",
+
+    "price": 600,
+
+    "category": "Shirt",
+
+    "countInStock": 6,
+    "averageRating": 5,
+
+    "description": "Arrow is one of the oldest brands when it comes to men's shirts and is owned by the PVH Company"
+  },
+
+  {
+    "name": "Peter England Shirts",
+
+    "productImage": "https://static-01.daraz.com.np/p/948d9ba5590bce2b26a64c40a111198c.jpg",
+
+    "brand": "Peter England Shirts",
+
+    "price": 1000,
+    "averageRating": 3.5,
+
+    "category": "Shirt",
+
+    "countInStock": 3,
+
+    "description": "Peter England is one of the largest menswear brands in India known for its standardized fits, fashionable styles and superior quality. Peter England’s shirts are a blend of comfort and style that makes it a top men’s shirt brand."
+  },
+
+  {
+    "name": "Levi’s",
+
+    "productImage": "https://n.nordstrommedia.com/id/sr3/fa9733e8-7cbc-4475-b217-51ea291ec367.jpeg?h=365&w=240&dpr=2",
+
+    "brand": "Levi’s",
+
+    "price": 200,
+    "averageRating": 2.5,
+
+    "category": "Pants",
+
+    "countInStock": 2,
+
+    "description": "Levi’s is one of the most popular and top-selling jeans brand in the world. This veteran jeans brand has been able to create a distinctive place of its own in the merchandise industry as people associate it with a definite status symbol."
+  },
+
+  {
+    "name": "Wrangler",
+
+    "productImage": "https://images.wrangler.com/is/image/Wrangler/3W031PG-HERO?$KDP-XXLARGE$",
+
+    "brand": "Wrangler",
+
+    "price": 100,
+    "averageRating": 4.5,
+
+    "category": "Pants",
+
+    "countInStock": 1,
+
+    "description": "Wrangler is often described as a cool jeans brand because of superb fitting and stylish looks. It is designed by integrating both modern trends and vintage fashion. The in-demand jeans brand carries a “W” signature on its back pocket that gives it an individual, original and classy look."
+  },
+
+  {
+    "name": "Cotton Button-Up Shirt",
+
+    "productImage": "https://cdn.thewirecutter.com/wp-content/media/2022/01/buttonupshirts-2048px-DSCF0461.jpg?auto=webp&quality=75&width=1024",
+
+    "brand": "FashionCo",
+
+    "price": 400,
+    "averageRating": 2.5,
+
+    "category": "Shirt",
+
+    "countInStock": 6,
+
+    "description": "A comfortable and stylish cotton shirt with button-up design."
+  },
+
+  {
+    "name": "Lux Cozi",
+
+    "productImage": "https://m.media-amazon.com/images/I/61qlZbB7aaL._AC_UL480_FMwebp_QL65_.jpg",
+
+    "brand": "Lux Cozi",
+
+    "price": 1000,
+
+    "category": "Vest",
+    "averageRating": 5,
+
+    "countInStock": 3,
+
+    "description": "A sleek and modern slim-fit vest for formal occasions"
+  },
+
+  {
+    "name": "GlobalNiche® Mountain Khakis Men's Alpine Utility Pant Relaxed Fit, Ranch, 36Wx32L",
+
+    "productImage": "https://m.media-amazon.com/images/I/71gpZSt6aKL._SY450_.jpg",
+
+    "brand": "Generic",
+
+    "price": 123079,
+    "averageRating": 5,
+
+    "category": "Pants",
+
+    "countInStock": 2,
+
+    "description": "Good quality and Suitable to use."
+  },
+
+  {
+    "name": "Selvia Men's Solid Lycra Full Elastic Jogger Track Pant",
+
+    "productImage": "https://m.media-amazon.com/images/I/41DQZ1wzHuL._UY500_.jpg",
+
+    "brand": "Selvia ",
+    "averageRating": 4.5,
+
+    "price": 80,
+
+    "category": "Pants",
+
+    "countInStock": 1,
+
+    "description": "Track Pant Length : 38.5 Inch|| Waist Size : 30 Inch|| Hip Size : 38 Inch || Thigh : 20 Inch ||Select required Waist Size from Filter Box S (28 Inch),M (30 Inch),L (32 Inch),XL (34 Inch),XXL( 36 Inch)"
+  },
+
+  {
+    "name": "Red Tape Cotton Shirt for Men | Casual Full Sleeves Cotton Shirt",
+
+    "productImage": "https://m.media-amazon.com/images/I/61q4I7K5xIL._UX522_.jpg",
+
+    "brand": "Red Tape Store",
+
+    "price": 800,
+    "averageRating": 3.5,
+
+    "category": "Shirt",
+
+    "countInStock": 3,
+
+    "description": "This Shirt Is Designed to Provide Utmost Comfort in The Hot Summer Season with Great Fit And Trendy Looks. Easy To Wear, High Quality Branded Product"
+  },
+
+  {
+    "name": "Peter England Men Pants",
+
+    "productImage": "https://m.media-amazon.com/images/I/51YRfATYY1L._UY550_.jpg",
+
+    "brand": "Peter England",
+
+    "price": 4155,
+    "averageRating": 3,
+
+    "category": "Pants",
+
+    "countInStock": 2,
+
+    "description": "Care Instructions: Machine Wash"
+  },
+
+  {
+    "name": "Supreme Men's Sleeveless Cotton Vest ",
+
+    "productImage": "https://m.media-amazon.com/images/I/61qiRGlIHaL._UX385_.jpg",
+
+    "brand": "Supreme ",
+
+    "price": 345,
+    "averageRating": 2,
+
+    "category": "Vest",
+
+    "countInStock": 1,
+
+    "description": "Care Instructions: Machine Wash"
+  }
+]
